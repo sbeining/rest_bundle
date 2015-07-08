@@ -160,59 +160,34 @@ abstract class RestController extends Controller
      * @throws NotFoundHttpException
      * @param mixed $id
      *
+     * @abstract
      * @return Object An entity
      */
-    protected function getObject($id)
-    {
-        $object = $this->getRepository()->find($id);
-
-        if (!$object) {
-            return new NotFoundHttpException('Object not found');
-        }
-
-        return $object;
-    }
+    abstract protected function getObject($id);
 
     /**
      * Saves the object
      *
+     * @abstract
      * @param Object $object
      */
-    protected function saveObject($object)
-    {
-        $em = $this->getEntityManager();
-        $em->persist($object);
-        $em->flush();
-    }
+    abstract protected function saveObject($object);
 
     /**
      * Deletes the object
      *
+     * @abstract
      * @param Object $object
      */
-    protected function deleteObject($object)
-    {
-        $em = $this->getEntityManager();
-        $em->delete($object);
-        $em->flush();
-    }
+    abstract protected function deleteObject($object);
 
     /**
      * Returns a list of object
      *
+     * @abstract
      * @return array
      */
-    protected function getListTravesable()
-    {
-        return $this->getRepository()->findAll();
-    }
-
-    /**
-     * Returns the repository instance
-     *
-     * @return Repository
-     */
-    abstract protected function getRepository();
+    abstract protected function getListTravesable();
 
     /**
      * Creates a new entity
@@ -248,15 +223,5 @@ abstract class RestController extends Controller
     private function getConverter($object)
     {
         return $this->getConverterFactory()->createConverterFor($object);
-    }
-
-    /**
-     * Returns the entity manager used to save and delete objects
-     *
-     * @return \Doctrine\Common\Persistence\ObjectManager
-     */
-    private function getEntityManager()
-    {
-        return $this->getDoctrine()->getManager();
     }
 }
