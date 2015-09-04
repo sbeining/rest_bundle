@@ -46,7 +46,7 @@ abstract class DoctrineRestController extends RestController
     /**
      * @see parent
      */
-    protected function getListTravesable()
+    protected function getListTraversable()
     {
         return $this->getRepository()->findAll();
     }

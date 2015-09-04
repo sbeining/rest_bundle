@@ -27,7 +27,7 @@ abstract class RestController extends Controller
      */
     public function listAction()
     {
-        $list = $this->getListTravesable();
+        $list = $this->getListTraversable();
 
         return array(
             'objects' => $this->getConverter($list)->toOutputFormat(),
@@ -187,7 +187,7 @@ abstract class RestController extends Controller
      * @abstract
      * @return array
      */
-    abstract protected function getListTravesable();
+    abstract protected function getListTraversable();
 
     /**
      * Creates a new entity

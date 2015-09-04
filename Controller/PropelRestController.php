@@ -42,7 +42,7 @@ abstract class PropelRestController extends RestController
     /**
      * @see parent
      */
-    protected function getListTravesable()
+    protected function getListTraversable()
     {
         return $this->getQuery()->find();
     }
