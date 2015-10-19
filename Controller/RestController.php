@@ -103,7 +103,7 @@ abstract class RestController extends Controller
         $object = $this->getObject($id);
 
         $this->preDeleteHook($object);
-        $this>deleteObject($object);
+        $this->deleteObject($object);
         $this->postDeleteHook($object);
 
         return $response;
