@@ -2,6 +2,8 @@
 
 namespace sbeining\RestBundle\Controller;
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 /**
  * Doctrine Version of the REST Controller
  *
