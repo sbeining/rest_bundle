@@ -41,7 +41,7 @@ abstract class DoctrineRestController extends RestController
     protected function deleteObject($object)
     {
         $em = $this->getEntityManager();
-        $em->delete($object);
+        $em->remove($object);
         $em->flush();
     }
 
